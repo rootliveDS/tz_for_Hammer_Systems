@@ -24,7 +24,7 @@ class RequestAuthorizationCodeView(APIView):
         if created:
             user.authorization_code = authorization_code
             user.save()
-            return Response({'message': 'Authorization code sent successfully.'})
+            return Response({'message': f'Authorization code sent successfully. Your authorization_code is: {authorization_code}'})
         else:
             return Response({'message': 'User already exists.'})
 
